@@ -15,3 +15,11 @@ body{
 .parrafo3{
     font-size: 12px;
 }
+
+.italic-text{
+    font-style: italic;
+}
+
+h2{
+    text-decoration: underline;
+}
