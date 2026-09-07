@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Productos — Pro-Pack</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Línea de productos de cartón corrugado de Pro-Pack: cajas, displays, charolas y empaque a medida.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <a class="logo" href="index (4).html">Pro<span>-Pack</span></a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" onclick="const n=document.getElementById('mainNav'); const open=n.getAttribute('data-open')==='true'; n.setAttribute('data-open', String(!open)); this.setAttribute('aria-expanded', String(!open))"><span></span></button>
+    <nav id="mainNav" data-open="false">
+      <ul>
+        <li><a href="index (4).html">Inicio</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="productos.html" class="current" aria-current="page">Productos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="hero-flute" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,100 Q20,60 40,100 T80,100 T120,100 T160,100 T200,100 T240,100 T280,100 T320,100 T360,100 T400,100 T440,100 T480,100"
+          fill="none" stroke="#FFFFFF" stroke-width="3"/>
+    <path d="M0,140 Q20,100 40,140 T80,140 T120,140 T160,140 T200,140 T240,140 T280,140 T320,140 T360,140 T400,140 T440,140 T480,140"
+          fill="none" stroke="#FFFFFF" stroke-width="3"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <h1>Productos</h1>
+    <p class="hero-lede">Una línea de empaque pensada por función, no solo por forma. Cada producto resuelve un problema distinto de protección, transporte o exhibición.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-thumb">
+          <svg viewBox="0 0 200 120"><rect x="20" y="30" width="120" height="70" fill="#C79564"/><polygon points="20,30 45,15 165,15 140,30" fill="#B9835A"/><polygon points="140,30 165,15 165,85 140,100" fill="#7A4E2D"/></svg>
+        </div>
+        <span class="product-tag">Transporte</span>
+        <h3>Cajas de cartón corrugado</h3>
+        <p>Cajas estándar y a medida para envío y almacenamiento, en distintos calibres según el peso a soportar.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-thumb">
+          <svg viewBox="0 0 200 120"><rect x="30" y="20" width="140" height="14" fill="#7A4E2D"/><rect x="30" y="40" width="140" height="60" fill="#EDE7DA" stroke="#B9835A"/><rect x="45" y="55" width="30" height="30" fill="#C79564"/><rect x="85" y="55" width="30" height="30" fill="#C79564"/><rect x="125" y="55" width="30" height="30" fill="#C79564"/></svg>
+        </div>
+        <span class="product-tag">Punto de venta</span>
+        <h3>Displays y exhibidores</h3>
+        <p>Exhibidores de piso y de mostrador para impulsar producto directamente en el punto de venta.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-thumb">
+          <svg viewBox="0 0 200 120"><path d="M30,90 L60,30 L140,30 L170,90 Z" fill="#C79564"/><rect x="30" y="90" width="140" height="10" fill="#7A4E2D"/></svg>
+        </div>
+        <span class="product-tag">A medida</span>
+        <h3>Empaques a medida</h3>
+        <p>Desarrollo de estructuras exclusivas cuando el producto tiene una forma o necesidad particular.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-thumb">
+          <svg viewBox="0 0 200 120"><rect x="20" y="60" width="160" height="16" fill="#EDE7DA" stroke="#B9835A"/><rect x="35" y="76" width="30" height="16" fill="#C79564"/><rect x="85" y="76" width="30" height="16" fill="#C79564"/><rect x="135" y="76" width="30" height="16" fill="#C79564"/></svg>
+        </div>
+        <span class="product-tag">Interno</span>
+        <h3>Charolas y bandejas</h3>
+        <p>Soluciones internas que ordenan, separan y fijan el producto dentro de la caja principal.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-thumb">
+          <svg viewBox="0 0 200 120"><rect x="30" y="25" width="140" height="70" fill="none" stroke="#7A4E2D" stroke-width="3"/><line x1="30" y1="60" x2="170" y2="60" stroke="#B9835A" stroke-width="3"/><line x1="100" y1="25" x2="100" y2="95" stroke="#B9835A" stroke-width="3"/></svg>
+        </div>
+        <span class="product-tag">Protección</span>
+        <h3>Separadores internos</h3>
+        <p>Divisiones y esquineros que evitan el contacto entre piezas durante el transporte.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="product-thumb">
+          <svg viewBox="0 0 200 120"><rect x="25" y="30" width="150" height="65" fill="#20474C"/><circle cx="60" cy="55" r="4" fill="#DCEBEA"/><circle cx="95" cy="70" r="5" fill="#DCEBEA"/><circle cx="130" cy="50" r="3" fill="#DCEBEA"/></svg>
+        </div>
+        <span class="product-tag">Humedad</span>
+        <h3>Empaque resistente al agua</h3>
+        <p>Tratamiento especial para productos que se almacenan o transportan en ambientes húmedos.</p>
+      </div>
+
+    </div>
+
+    <p class="form-note catalog-note">Este catálogo es de referencia. Podemos desarrollar una estructura nueva según las medidas y el uso de tu producto.</p>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap cta-row">
+    <h2>¿No encuentras lo que necesitas?</h2>
+    <a class="btn btn-primary" href="contacto.html">Cuéntanos tu proyecto</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <p>Pro-Pack © 2017–2026 · Productos de Empaque, S.A.</p>
+    <p>San Salvador, El Salvador</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Sobre el Cartón Corrugado — Pro-Pack</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Pro-Pack: qué es el cartón corrugado, su estructura y su composición.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="about-page">
+
+<header>
+  <div class="wrap header-row">
+    <a class="logo" href="index (4).html">Pro<span>-Pack</span></a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" onclick="const n=document.getElementById('mainNav'); const open=n.getAttribute('data-open')==='true'; n.setAttribute('data-open', String(!open)); this.setAttribute('aria-expanded', String(!open))"><span></span></button>
+    <nav id="mainNav" data-open="false">
+      <ul>
+        <li><a href="index (4).html">Inicio</a></li>
+        <li><a href="#nil" class="current" aria-current="page">Sobre</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="hero-flute" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,100 Q20,60 40,100 T80,100 T120,100 T160,100 T200,100 T240,100 T280,100 T320,100 T360,100 T400,100 T440,100 T480,100"
+          fill="none" stroke="#FFFFFF" stroke-width="3"/>
+    <path d="M0,140 Q20,100 40,140 T80,140 T120,140 T160,140 T200,140 T240,140 T280,140 T320,140 T360,140 T400,140 T440,140 T480,140"
+          fill="none" stroke="#FFFFFF" stroke-width="3"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <h1>Cartón corrugado</h1>
+    <p class="hero-lede">El cartón corrugado es el material base de nuestros envases y embalajes. <strong>Se compone de tres o cinco papeles</strong>: las capas exteriores son lisas y la interior —o interiores— va ondulada, lo que le da a la estructura su resistencia característica.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>La composición</h2>
+      <p>Cada lámina de cartón corrugado es en realidad un pequeño sistema estructural: dos superficies planas que sostienen un núcleo ondulado entre ellas.</p>
+    </div>
+
+    <div class="cross-section">
+      <div class="cross-diagram">
+        <svg viewBox="0 0 520 260" role="img" aria-label="Corte transversal del cartón corrugado mostrando dos capas lisas y un núcleo ondulado entre ellas">
+          <!-- top liner -->
+          <rect x="30" y="30" width="460" height="26" fill="#C79564"/>
+          <!-- flute -->
+          <path d="M30,124
+                   C55,84 75,84 100,124
+                   C125,164 145,164 170,124
+                   C195,84 215,84 240,124
+                   C265,164 285,164 310,124
+                   C335,84 355,84 380,124
+                   C405,164 425,164 450,124
+                   C465,104 478,96 490,90
+                   L490,158
+                   C478,164 465,172 450,192
+                   C425,152 405,152 380,192
+                   C355,232 335,232 310,192
+                   C285,152 265,152 240,192
+                   C215,232 195,232 170,192
+                   C145,152 125,152 100,192
+                   C75,232 55,232 30,192 Z"
+                fill="#7A4E2D" opacity="0.9"/>
+          <!-- bottom liner -->
+          <rect x="30" y="204" width="460" height="26" fill="#EDE7DA" stroke="#B9835A" stroke-width="1"/>
+          <!-- callout lines -->
+          <line x1="490" y1="43" x2="510" y2="43" stroke="#4A3B2E" stroke-width="1.5"/>
+          <line x1="490" y1="130" x2="510" y2="130" stroke="#4A3B2E" stroke-width="1.5"/>
+          <line x1="490" y1="217" x2="510" y2="217" stroke="#4A3B2E" stroke-width="1.5"/>
+        </svg>
+      </div>
+
+      <ul class="layer-list">
+        <li>
+          <span class="layer-mark layer-mark-exterior"></span>
+          <div class="layer-copy">
+            <h3>Cara exterior lisa</h3>
+            <p>La superficie visible del envase: recibe la impresión y protege el contenido del exterior.</p>
+          </div>
+        </li>
+        <li>
+          <span class="layer-mark layer-mark-core"></span>
+          <div class="layer-copy">
+            <h3>Núcleo ondulado</h3>
+            <p>El "flauteado" central. Su forma de onda absorbe impactos y le da rigidez a toda la lámina.</p>
+          </div>
+        </li>
+        <li>
+          <span class="layer-mark layer-mark-interior"></span>
+          <div class="layer-copy">
+            <h3>Cara interior lisa</h3>
+            <p>Cierra la estructura por dentro y queda en contacto directo con el producto empacado.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="swatches">
+      <div class="swatch-card">
+        <div class="swatch-chip kraft"></div>
+        <h3>Papel kraft</h3>
+        <p>Acabado natural, resistente, el más común para embalaje de transporte.</p>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-chip blanco"></div>
+        <h3>Papel blanco</h3>
+        <p>Superficie clara pensada para impresión de alta calidad y presentación.</p>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-chip agua"></div>
+        <h3>Resistente al agua</h3>
+        <p>Tratamiento adicional para productos que requieren protección contra humedad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <p>Pro-Pack © 2017–2026 · Productos de Empaque, S.A.</p>
+    <p>San Salvador, El Salvador</p>
+  </div>
+</footer>
+
+</body>
+</html>
