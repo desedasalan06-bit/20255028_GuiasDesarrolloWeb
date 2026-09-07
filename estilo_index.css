@@ -1,0 +1,146 @@
+:root {
+  --ink: #17233c;
+  --muted: #5c6b82;
+  --accent: #d45d3f;
+  --accent-dark: #a9432d;
+  --surface: #ffffff;
+  --line: #dce3ec;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 28px 64px;
+  background: linear-gradient(135deg, #f7f3ed 0%, #eef4f7 100%);
+  color: var(--ink);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+h1 {
+  text-align: center;
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  letter-spacing: 0.02em;
+}
+
+h2 {
+  text-align: center;
+  margin: 8px 0 48px;
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+h3 {
+  margin: 34px 0 12px;
+  padding-bottom: 7px;
+  color: var(--accent-dark);
+  border-bottom: 2px solid var(--accent);
+  font-size: 1.25rem;
+}
+
+ul {
+  margin: 0 0 22px;
+  padding-left: 24px;
+}
+
+li {
+  margin-bottom: 9px;
+}
+
+a {
+  color: #1d5d83;
+  font-weight: 600;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 160ms ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--accent-dark);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 38px 0 32px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 10px 28px rgba(23, 35, 60, 0.08);
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 16px 18px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background-color: var(--ink);
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+}
+
+td ul {
+  margin: 0;
+}
+
+td li {
+  margin-bottom: 8px;
+}
+
+code {
+  padding: 2px 5px;
+  background: #f1e8df;
+  border-radius: 4px;
+  color: var(--accent-dark);
+  font-family: Consolas, monospace;
+  font-size: 0.9em;
+}
+
+iframe {
+  display: block;
+  width: min(100%, 720px);
+  aspect-ratio: 16 / 9;
+  height: auto;
+  margin: 32px auto 0;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(23, 35, 60, 0.16);
+}
+
+@media (max-width: 650px) {
+  body {
+    padding: 30px 16px 42px;
+  }
+
+  h2 {
+    margin-bottom: 34px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  th, td {
+    min-width: 280px;
+    padding: 13px;
+  }
+}
+
+.video-wrapper {
+  text-align: center;
+  margin-bottom: 20px;
+}
