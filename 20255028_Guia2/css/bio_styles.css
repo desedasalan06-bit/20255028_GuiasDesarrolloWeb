@@ -1,0 +1,394 @@
+:root{
+    --color-fondo-main:#f4f6f8;
+    --text: #20252b;
+    --color-nav: white;
+    --surface:  #ffffff;
+    --line: #dfe4e8;
+    --accent: #22577a;
+    --accent-soft: #eaf2f7;
+    --header-height: 72px;
+    --footer-height: 54px;
+}
+
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    background-color: var(--color-fondo-main);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+h2{
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+
+.site-header{
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--line);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    align-items: center;
+    display: flex;
+}
+
+.header-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    width: 90%;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.main-nav nav{
+    width: 2rem;
+}
+
+.options{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nombre{
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing:  0.02em;
+    text-decoration: none;
+}
+
+.buttoms-inner{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+/*Main-section inicio*/
+.inicio-section{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background-color: var(--surface);
+    border-radius: 35px;
+    margin-top: 25px;
+    width: 90%;
+    max-width: 1120px;
+    margin: 0 auto;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    border-bottom: 25px;
+}
+
+.imagen-conteiner-inicio{
+    width: 100%;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: 0;
+}
+.texto-inicio-conteiner h1{
+    max-width: 720px;
+    font-size: clamp(2.3rem, 6vw, 4.8rem);
+    margin: 0;
+}
+#Imaguen-alan-inicio{
+    display: block;
+    width: 100%;
+    max-width: 3000px;
+    height: 100%;
+    border-radius: 12px;
+}
+
+.inicio-section div{
+    padding: 30px;
+}
+
+.inicio-section a{
+    background-color: var(--accent);
+    padding: 0.8rem 1rem;
+    color: white;
+    border-radius: 0.55rem;
+    display: inline;
+    font-weight: bold;
+
+}
+
+/*Section familia*/
+
+.familia-section{
+    display: flex;
+    align-items: center;
+    background-color: var(--accent);
+    border-top: 25px;
+    color: white;
+    gap: 20px;
+    height: 25rem;
+    border: 0 auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 3.5rem 0; 
+}
+
+.familia-img-conteiner{
+    display: flex;
+    align-items: end;
+    width: 100%;
+    gap: 25px;
+    height: 20rem;
+}
+
+.texto-familia p{
+    height: auto;
+    max-width: 100%;
+    margin: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    line-height: 1.6;
+}
+
+.familia-img-conteiner div{
+    width: 15rem;
+    height:20rem;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    border-radius: 25px;
+}
+
+.familia-img-conteiner>div p{
+    color:var(--accent);
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    margin-bottom: 35px;
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    background: var(--accent-soft);
+    border-radius: 999px;
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+#papa{
+    background-image: url("../Ejercicio_complementarios/img/AdobeExpressPhotos_229c8a2fbd1a46c58db0c482dfb48d65_CopyEdited.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#mama{
+    background-image: url("../Ejercicio_complementarios/img/WhatsApp\ Image\ 2026-09-19\ at\ 17.14.05\ \(1\).jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#hermana{
+    background-image: url("../Ejercicio_complementarios/img/WhatsApp\ Image\ 2026-09-19\ at\ 17.14.05\ \(2\).jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.familia-img-conteiner p{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/*Eduación*/
+
+.education-section{
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 25rem;
+    border-radius: 25px;
+    background-color: var(--surface);
+    margin: 0 auto;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    max-height: 50rem;
+
+}
+
+.education-text-conteiner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    width: 100%;
+    max-width: 1120px;
+    max-height: 1120px;
+    margin: 0 auto;
+    padding: 0 30px;
+    text-align: left;
+}
+
+
+.education-text-conteiner h2{
+    display: block;
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.education-text-conteiner a{
+    display: inline;
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: bold;
+    text-decoration: underline 2px;
+}
+
+.escuelas-conteiner{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 30px;
+    height: 350px;
+}
+
+.escuelas-conteiner div{
+    width: calc(100%/3);
+    height: 325px;
+    border-radius: 25px;
+    align-items: center;
+    background-color: var(--color-fondo-main);
+    padding: 1.5rem;
+}
+
+.card-tag{
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    background: var(--accent-soft);
+    border-radius: 999px;
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.link-escuela{
+    display: inline;
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: bold;
+    text-decoration: underline 2px;
+}
+
+/*hobbies*/
+.hobbies{
+    display: flex;
+    align-items: center;
+    background-color: var(--surface);
+    border-radius: 25px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 35px;
+    gap: 100px;
+    border-bottom: 35px;
+}
+
+.titulos-hobbies{
+    width: 50rem;
+}
+.titulos-hobbies p{
+    color: var(--accent);
+    text-transform: uppercase;
+     font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+}
+
+/*Ultimos años*/
+
+.ultimos_años{
+    display: flex;
+    align-items: center;
+    background-color: var(--accent);
+    border-radius: 25px;
+    margin: 0 auto;
+    width: 90%;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    padding: 40px;
+    gap: 50px;
+}
+
+.texto-section{
+    background-color: var(--color-fondo-main);
+    border-radius: 25px;
+    padding: 20px;
+    height: 35rem;
+}
+
+.texto-section >p:first-child{
+    color: var(--accent);
+    text-transform: uppercase;
+     font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+}
+
+.img-conteiner-section{
+    width: 80rem;
+    height: 35rem;
+    display: flex;
+    justify-content:center;
+    align-items: end;
+    background-image: url("../Ejercicio_complementarios/img/AdobeExpressPhotos_326f882343ce472ba6257c753f0b634c_CopyEdited.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 25px;
+}
+.img-conteiner-section p{
+    color:var(--accent);
+    text-transform: uppercase;
+     font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    margin-bottom: 35px;
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    background: var(--accent-soft);
+    border-radius: 999px;
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+
