@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — Corrugados del Istmo</title>
+  <link rel="stylesheet" href="../css/reto_id.css">
+</head>
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="wordmark">Corrugados del Istmo</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="inicio.html">Inicio</a></li>
+          <li><a href="producto.html">Productos</a></li>
+          <li><a href="contacto.html" class="active">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 48px;">
+    <h1 class="heading-lg" style="margin-bottom: 48px;">Hablemos de tu empaque</h1>
+
+    <div class="grid-2" style="align-items: start;">
+      
+      <!-- COLUMNA IZQUIERDA: FORMULARIO EDITORIAL -->
+      <div>
+        <form id="contact-form" onsubmit="handleFormSubmit(event)" style="display: flex; flex-direction: column; gap: 24px;">
+          <div>
+            <label class="body-sm" for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" required class="input-editorial">
+          </div>
+          <div>
+            <label class="body-sm" for="empresa">Empresa</label>
+            <input type="text" id="empresa" required class="input-editorial">
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 17px;">
+            <div>
+              <label class="body-sm" for="correo">Correo electrónico</label>
+              <input type="email" id="correo" required class="input-editorial">
+            </div>
+            <div>
+              <label class="body-sm" for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" class="input-editorial">
+            </div>
+          </div>
+          <div>
+            <label class="body-sm" for="tipo">Tipo de empaque requerido</label>
+            <select id="tipo" class="input-editorial" style="background: transparent;">
+              <option value="exportacion">Cajas para exportación</option>
+              <option value="ecommerce">Empaque e-commerce</option>
+              <option value="display">Display / Punto de venta</option>
+              <option value="medida">Desarrollo a medida / Troquel</option>
+            </select>
+          </div>
+          <div>
+            <label class="body-sm" for="mensaje">Detalles del proyecto (dimensiones, volumen, frecuencia)</label>
+            <textarea id="mensaje" rows="4" class="input-editorial" style="resize: vertical;"></textarea>
+          </div>
+          <div>
+            <button type="submit" class="btn-ghost">Enviar mensaje &rarr;</button>
+          </div>
+          <p id="form-status" class="body-sm" style="display:none; color: #2e6b38;"></p>
+        </form>
+      </div>
+
+      <!-- COLUMNA DERECHA: INFORMACIÓN DIRECTA -->
+      <div class="bg-linen" style="padding: 32px;">
+        <h3 class="subheading" style="margin-bottom: 24px;">Planta y atención directa</h3>
+        
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div>
+            <p class="body-sm">Dirección</p>
+            <p class="body-text" style="font-size: 16px;">Vía Domingo Díaz, frente a Harinas del Istmo, Antigua Galera de Ind. Papelera del Caribe, Ciudad de Panamá.</p>
+          </div>
+          <div>
+            <p class="body-sm">Teléfono</p>
+            <p class="body-text" style="font-size: 16px;">+507 204 3504 / 3503 / 3505</p>
+          </div>
+          <div>
+            <p class="body-sm">Correo ventas</p>
+            <p class="body-text" style="font-size: 16px;">ventas@productosdeempaque.com</p>
+          </div>
+          <div>
+            <p class="body-sm">Horarios de planta</p>
+            <p class="body-text" style="font-size: 16px;">Lunes a Viernes: 7:30 AM – 4:30 PM</p>
+          </div>
+        </div>
+
+        <!-- CÍRCULOS PASTEL PARA CANALES / REDES -->
+        <div style="margin-top: 32px; display: flex; gap: 12px; align-items: center;">
+          <a href="#" class="icon-circle mint" title="WhatsApp Directo" style="margin-bottom: 0;">💬</a>
+          <a href="#" class="icon-circle rose" title="Ubicación Mapas" style="margin-bottom: 0;">📍</a>
+          <a href="#" class="icon-circle peach" title="Contacto Mail" style="margin-bottom: 0;">✉️</a>
+        </div>
+
+        <div style="margin-top: 24px; background: #bcbab2; height: 160px; width: 100%;">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--bark); font-size: 14px;">
+            [ Visualización de Planta / Mapa ]
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" style="margin-top: 64px;">
+    <div class="container footer-grid">
+      <div>
+        <h4>Mantente al día</h4>
+        <input type="email" placeholder="tu@correo.com" class="input-editorial" style="max-width: 220px;">
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <p class="body-sm">Productos de Empaque, S.A.<br>Panamá</p>
+      </div>
+      <div class="footer-col">
+        <h4>Teléfono</h4>
+        <p class="body-sm">+507 204 3504</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const status = document.getElementById('form-status');
+      status.textContent = 'Mensaje preparado. En breve un asesor técnico de Pro-Pack se pondrá en contacto.';
+      status.style.display = 'block';
+      document.getElementById('contact-form').reset();
+    }
+  </script>
+</body>
+</html>

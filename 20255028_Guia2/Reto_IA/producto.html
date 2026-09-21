@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos — Corrugados del Istmo</title>
+  <link rel="stylesheet" href="../css/reto_id.css">
+  <style>
+    /* Zoom suave en imágenes */
+    .product-img-wrap {
+      overflow: hidden;
+      background: #e2dfd5;
+      aspect-ratio: 16/9;
+      width: 100%;
+    }
+    .product-img-wrap svg, .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.4s ease;
+    }
+    .product-card:hover .product-img-wrap svg {
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="wordmark">Corrugados del Istmo</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="inicio.html">Inicio</a></li>
+          <li><a href="producto.html" class="active">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 48px;">
+    <h1 class="heading-lg" style="margin-bottom: 48px;">Nuestras líneas de empaque</h1>
+
+    <!-- GRID DE PRODUCTOS CON ANIMACIÓN FADE-UP -->
+    <div class="grid-2">
+      
+      <!-- Producto 1 -->
+      <article class="product-card fade-up">
+        <div class="product-img-wrap">
+          <svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="225" fill="#dfdcce"/>
+            <rect x="100" y="50" width="200" height="125" fill="none" stroke="#6a6965" stroke-width="2"/>
+            <line x1="100" y1="50" x2="300" y2="175" stroke="#6a6965" stroke-width="1"/>
+          </svg>
+        </div>
+        <div style="padding-top: 17px;">
+          <h3>Cajas para exportación</h3>
+          <p class="body-sm" style="margin: 8px 0 17px;">Diseñadas para resistir apilado prolongado y condiciones de humedad en fletes marítimos o aéreos.</p>
+          <a href="contacto.html" class="pill-link">Ver especificaciones &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Producto 2 -->
+      <article class="product-card fade-up">
+        <div class="product-img-wrap">
+          <svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="225" fill="#d9d6c8"/>
+            <path d="M140 40 L260 40 L280 185 L120 185 Z" fill="none" stroke="#6a6965" stroke-width="2"/>
+          </svg>
+        </div>
+        <div style="padding-top: 17px;">
+          <h3>Cajas para e-commerce</h3>
+          <p class="body-sm" style="margin: 8px 0 17px;">Soluciones automontables de alta presentación visual para envíos directos al consumidor final.</p>
+          <a href="contacto.html" class="pill-link">Ver especificaciones &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Producto 3 -->
+      <article class="product-card fade-up">
+        <div class="product-img-wrap">
+          <svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="225" fill="#d5d1c2"/>
+            <circle cx="200" cy="112" r="60" fill="none" stroke="#6a6965" stroke-width="2"/>
+          </svg>
+        </div>
+        <div style="padding-top: 17px;">
+          <h3>Display & Punto de Venta</h3>
+          <p class="body-sm" style="margin: 8px 0 17px;">Exhibidores comerciales ligeros, resistentes e impresos con flexografía de alta precisión.</p>
+          <a href="contacto.html" class="pill-link">Ver especificaciones &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Producto 4 -->
+      <article class="product-card fade-up">
+        <div class="product-img-wrap">
+          <svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="225" fill="#cfcbba"/>
+            <path d="M80 60 L320 60 L320 165 L80 165 Z" fill="none" stroke="#6a6965" stroke-width="1.5" stroke-dasharray="4 4"/>
+          </svg>
+        </div>
+        <div style="padding-top: 17px;">
+          <h3>Empaque a medida industrial</h3>
+          <p class="body-sm" style="margin: 8px 0 17px;">Desarrollo estructural completo y plano de troquel personalizado según las dimensiones de tu producto.</p>
+          <a href="contacto.html" class="pill-link">Ver especificaciones &rarr;</a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- CTA FINAL -->
+    <section class="bg-linen" style="margin-top: 64px; text-align: center; padding: 64px 32px;">
+      <h2 class="heading-md" style="margin-bottom: 17px;">¿Necesitas una estructura personalizada?</h2>
+      <p class="body-text" style="max-width: 560px; margin: 0 auto 24px;">Creamos muestras físicas y adaptamos calibres a tu cadena logística.</p>
+      <a href="contacto.html" class="btn-ghost">Solicita una cotización &rarr;</a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" style="margin-top: 64px;">
+    <div class="container footer-grid">
+      <div>
+        <h4>Mantente al día</h4>
+        <input type="email" placeholder="tu@correo.com" class="input-editorial" style="max-width: 220px;">
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ubicación</h4>
+        <p class="body-sm">Planta Vía Domingo Díaz, Panamá</p>
+      </div>
+      <div class="footer-col">
+        <h4>Teléfono</h4>
+        <p class="body-sm">+507 204 3504</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ANIMACIONES JS (IntersectionObserver) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>
