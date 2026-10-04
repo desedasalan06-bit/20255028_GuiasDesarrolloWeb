@@ -2,24 +2,30 @@
     position: absolute;
     top: 100px;
     left: 100px;
+    z-index: 10;
 }
 #sota_de_diamantes{
     position: absolute;
     top: 115px;
     left: 115px;
+    z-index: 9;
 }
+
 #reina_de_diamantes{
     position: absolute;
     top: 130px;
     left: 130px;
+    z-index: 8;
 }
 #rey_de_diamantes{
     position: absolute;
     top: 145px;
     left: 145px;
+    z-index: 6;
 }
 #as_de_diamantes{
     position: absolute;
     top: 160px;
     left: 160px;
+    z-index: 5;
 }
