@@ -1,0 +1,1122 @@
+/* =========================================================
+   VARIABLES GLOBALES
+   ========================================================= */
+
+:root {
+    --bone-white: #fcf9ee;
+    --linen: #f2efe3;
+    --pebble: #bcbab2;
+    --bark: #6a6965;
+    --ink-black: #000000;
+
+    --mint: #d6f0e0;
+    --pink: #f8d6cc;
+    --peach: #f4dcc8;
+
+    --font-main: Inter, "Helvetica Neue", Arial, sans-serif;
+
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-md: 21px;
+    --text-lg: 30px;
+    --text-xl: 34px;
+    --text-xxl: 48px;
+
+    --content-width: 1200px;
+
+    --section-space: 64px;
+    --grid-gap: 16px;
+}
+
+
+/* =========================================================
+   RESET / BASE
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bone-white);
+    color: var(--ink-black);
+    font-family: var(--font-main);
+    font-size: var(--text-sm);
+    font-weight: 400;
+    letter-spacing: -0.022em;
+    line-height: 1.4;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+a {
+    color: var(--ink-black);
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    color: var(--ink-black);
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 500;
+    letter-spacing: -0.036em;
+}
+
+p {
+    letter-spacing: -0.022em;
+}
+
+
+/* =========================================================
+   ESTRUCTURA PRINCIPAL
+   ========================================================= */
+
+/*
+    GRID PRINCIPAL DEL SITIO
+
+    grid-template-columns:
+    Define una única columna para que el contenedor principal
+    pueda ordenar header, main y footer verticalmente.
+
+    grid-template-rows:
+    Define tres filas: navegación, contenido y footer.
+
+    grid-template-areas:
+    Determina qué zona ocupa cada parte de la página.
+
+    gap:
+    Mantiene una separación estructural entre las áreas.
+*/
+
+.site-shell {
+    width: 100%;
+    min-height: 100vh;
+
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr);
+
+    grid-template-rows: auto auto auto;
+
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+
+    gap: 0;
+}
+
+.site-header {
+    grid-area: header;
+}
+
+main {
+    grid-area: main;
+}
+
+.site-footer {
+    grid-area: footer;
+}
+
+
+/* =========================================================
+   UTILIDADES
+   ========================================================= */
+
+.section-grid {
+    width: min(calc(100% - 40px), var(--content-width));
+    margin-inline: auto;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+/*
+    GRID DEL HEADER
+
+    grid-template-columns:
+    Divide la navegación en dos zonas:
+    wordmark a la izquierda y navegación a la derecha.
+
+    grid-template-areas:
+    Asigna "brand" al wordmark y "nav" a los enlaces.
+
+    grid-template-rows:
+    Una única fila para mantener el header compacto.
+
+    gap:
+    Controla el espacio entre las dos áreas principales.
+*/
+
+.site-header {
+    width: min(calc(100% - 40px), var(--content-width));
+    min-height: 72px;
+    margin-inline: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr auto;
+
+    grid-template-rows: 72px;
+
+    grid-template-areas:
+        "brand nav";
+
+    gap: 24px;
+
+    align-items: center;
+
+    border-bottom: 1px solid var(--pebble);
+}
+
+.wordmark {
+    grid-area: brand;
+
+    font-size: var(--text-sm);
+    font-weight: 500;
+    letter-spacing: -0.022em;
+}
+
+.main-nav {
+    grid-area: nav;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, auto);
+
+    grid-template-rows: 1fr;
+
+    gap: 24px;
+
+    height: 100%;
+    align-items: center;
+}
+
+.nav-link {
+    position: relative;
+
+    display: grid;
+    align-items: center;
+
+    height: 100%;
+
+    font-size: 12px;
+}
+
+.nav-link.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 1px;
+
+    background: var(--ink-black);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+/*
+    GRID DEL HERO
+
+    grid-template-columns:
+    Divide el hero en dos columnas:
+    contenido textual e ilustración.
+
+    grid-template-rows:
+    Mantiene una única fila principal.
+
+    grid-template-areas:
+    Coloca el contenido a la izquierda y la ilustración
+    a la derecha.
+
+    gap:
+    Define la distancia entre ambas columnas.
+*/
+
+.hero {
+    min-height: 440px;
+
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+    grid-template-rows: minmax(420px, auto);
+
+    grid-template-areas:
+        "content visual";
+
+    gap: 0;
+
+    border-bottom: 1px solid var(--pebble);
+}
+
+.hero-content {
+    grid-area: content;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    grid-template-rows: auto auto auto auto;
+
+    align-content: center;
+
+    padding: 48px 40px 48px 0;
+}
+
+.eyebrow {
+    margin-bottom: 14px;
+
+    color: var(--bark);
+
+    font-size: 12px;
+}
+
+.hero h1 {
+    max-width: 540px;
+    margin-bottom: 20px;
+
+    font-size: var(--text-xxl);
+    line-height: 0.98;
+}
+
+.hero-description {
+    max-width: 560px;
+    margin-bottom: 28px;
+
+    font-size: var(--text-md);
+    line-height: 1.25;
+}
+
+.hero .button {
+    justify-self: start;
+}
+
+.hero-visual {
+    grid-area: visual;
+
+    min-height: 420px;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+
+    place-items: center;
+
+    background: #d9d7d1;
+}
+
+
+/* =========================================================
+   ILUSTRACIÓN DE CAJA
+   ========================================================= */
+
+.box-illustration {
+    position: relative;
+
+    width: 260px;
+    height: 210px;
+
+    transform: translateY(10px);
+}
+
+.box-top,
+.box-left,
+.box-right {
+    position: absolute;
+
+    border: 1px solid #77756f;
+}
+
+.box-top {
+    left: 50px;
+    top: 0;
+
+    width: 160px;
+    height: 112px;
+
+    background: transparent;
+
+    transform: skewY(27deg) rotate(-27deg);
+}
+
+.box-left {
+    left: 25px;
+    top: 66px;
+
+    width: 98px;
+    height: 105px;
+
+    background: transparent;
+
+    transform: skewY(27deg);
+}
+
+.box-right {
+    right: 25px;
+    top: 66px;
+
+    width: 98px;
+    height: 105px;
+
+    background: transparent;
+
+    transform: skewY(-27deg);
+}
+
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+
+.button {
+    min-height: 36px;
+    padding: 8px 12px;
+
+    display: inline-grid;
+    place-items: center;
+
+    border: 1px solid var(--ink-black);
+    border-radius: 0;
+
+    background: transparent;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+.button-outline:hover {
+    background: var(--ink-black);
+    color: var(--bone-white);
+}
+
+
+/* =========================================================
+   QUÉ HACEMOS
+   ========================================================= */
+
+/*
+    GRID DE LA SECCIÓN DE SERVICIOS
+
+    grid-template-columns:
+    Utiliza una única columna principal para el título y
+    posteriormente la cuadrícula interna de servicios.
+
+    grid-template-rows:
+    Crea una fila para el encabezado y otra para las tarjetas.
+
+    grid-template-areas:
+    Asigna "heading" al título y "services" a las tarjetas.
+
+    gap:
+    Define la separación vertical entre encabezado y tarjetas.
+*/
+
+.services {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    grid-template-rows: auto auto;
+
+    grid-template-areas:
+        "heading"
+        "services";
+
+    gap: 24px;
+
+    padding-block: var(--section-space);
+}
+
+.section-heading {
+    grid-area: heading;
+}
+
+.section-heading h2 {
+    margin-bottom: 0;
+
+    font-size: var(--text-lg);
+    line-height: 1;
+}
+
+.services-grid {
+    grid-area: services;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    grid-template-rows: 1fr;
+
+    gap: 16px;
+}
+
+.service-card {
+    min-height: 210px;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    grid-template-rows: auto 1fr auto;
+
+    gap: 16px;
+
+    padding: 0 16px 0 0;
+
+    border-bottom: 1px solid var(--pebble);
+}
+
+.service-card h3 {
+    margin-bottom: 0;
+
+    font-size: var(--text-md);
+    line-height: 1.05;
+}
+
+.service-card p {
+    margin-bottom: 0;
+
+    font-size: var(--text-sm);
+    line-height: 1.35;
+}
+
+.service-meta {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 2px;
+
+    padding-top: 10px;
+
+    border-top: 1px solid var(--pebble);
+
+    color: var(--bark);
+
+    font-size: 10px;
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   FABRICACIÓN LOCAL
+   ========================================================= */
+
+/*
+    GRID DE CALIDAD
+
+    grid-template-columns:
+    Divide la sección en dos grandes zonas:
+    introducción a la izquierda y features a la derecha.
+
+    grid-template-rows:
+    Mantiene una única fila principal.
+
+    grid-template-areas:
+    Coloca "intro" y "features" lado a lado.
+
+    gap:
+    Controla el espacio horizontal entre ambas áreas.
+*/
+
+.quality {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+    grid-template-rows: auto;
+
+    grid-template-areas:
+        "intro features";
+
+    gap: 48px;
+
+    padding-block: 48px;
+
+    background: var(--linen);
+}
+
+.quality-intro {
+    grid-area: intro;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    grid-template-rows: auto auto;
+
+    gap: 18px;
+
+    align-content: start;
+}
+
+.quality-intro h2 {
+    max-width: 480px;
+    margin-bottom: 0;
+
+    font-size: var(--text-lg);
+    line-height: 1.02;
+}
+
+.quality-intro p {
+    max-width: 510px;
+    margin-bottom: 0;
+
+    font-size: var(--text-sm);
+}
+
+.features-grid {
+    grid-area: features;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    grid-template-rows: repeat(3, auto);
+
+    gap: 18px;
+}
+
+.feature {
+    display: grid;
+
+    grid-template-columns: 40px minmax(0, 1fr);
+
+    grid-template-rows: auto;
+
+    gap: 14px;
+
+    align-items: start;
+}
+
+.feature-icon {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.icon-mint {
+    background: var(--mint);
+}
+
+.icon-pink {
+    background: var(--pink);
+}
+
+.icon-peach {
+    background: var(--peach);
+}
+
+.feature h3 {
+    margin: 1px 0 4px;
+
+    font-size: var(--text-sm);
+    letter-spacing: -0.022em;
+}
+
+.feature p {
+    margin-bottom: 0;
+
+    color: var(--bark);
+
+    font-size: 11px;
+    line-height: 1.35;
+}
+
+
+/* =========================================================
+   CASOS DE ÉXITO
+   ========================================================= */
+
+/*
+    GRID DE CASOS
+
+    grid-template-columns:
+    Distribuye las tres tarjetas en tres columnas iguales.
+
+    grid-template-rows:
+    Utiliza una fila para las tarjetas.
+
+    grid-template-areas:
+    La sección exterior separa el título de la cuadrícula
+    de casos mediante las áreas "heading" y "cases".
+
+    gap:
+    Controla la separación entre las tarjetas.
+*/
+
+.cases {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    grid-template-rows: auto auto;
+
+    grid-template-areas:
+        "heading"
+        "cases";
+
+    gap: 24px;
+
+    padding-block: var(--section-space);
+}
+
+.cases-grid {
+    grid-area: cases;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    grid-template-rows: 1fr;
+
+    gap: 16px;
+}
+
+.case-card {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    grid-template-rows: 150px auto;
+
+    gap: 12px;
+}
+
+.case-image {
+    width: 100%;
+    height: 150px;
+
+    background: #e1ded4;
+
+    overflow: hidden;
+}
+
+.case-image img {
+    filter: grayscale(100%);
+}
+
+.case-content {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    grid-template-rows: auto auto auto;
+
+    gap: 6px;
+}
+
+.case-category {
+    margin-bottom: 0;
+
+    color: var(--bark);
+
+    font-size: 10px;
+}
+
+.case-content h3 {
+    margin-bottom: 0;
+
+    font-size: var(--text-sm);
+    line-height: 1.15;
+}
+
+.case-content p:last-child {
+    margin-bottom: 0;
+
+    font-size: 11px;
+    line-height: 1.35;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+/*
+    GRID PRINCIPAL DEL FOOTER
+
+    grid-template-columns:
+    Divide el footer en cuatro columnas iguales.
+
+    grid-template-rows:
+    Utiliza una fila principal para las cuatro columnas.
+
+    grid-template-areas:
+    Identifica cada columna mediante su función:
+    newsletter, navigation, solutions y contact.
+
+    gap:
+    Define el espacio entre las cuatro columnas.
+*/
+
+.site-footer {
+    border-top: 1px solid var(--pebble);
+}
+
+.footer-grid {
+    width: min(calc(100% - 40px), var(--content-width));
+    margin-inline: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    grid-template-rows: auto;
+
+    grid-template-areas:
+        "newsletter navigation solutions contact";
+
+    gap: 32px;
+
+    padding-block: 32px;
+}
+
+.newsletter {
+    grid-area: newsletter;
+}
+
+.footer-column:nth-child(2) {
+    grid-area: navigation;
+}
+
+.footer-column:nth-child(3) {
+    grid-area: solutions;
+}
+
+.footer-column:nth-child(4) {
+    grid-area: contact;
+}
+
+.footer-column {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    grid-template-rows: auto auto 1fr;
+
+    gap: 12px;
+
+    align-content: start;
+}
+
+.footer-column h2 {
+    margin-bottom: 0;
+
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: -0.022em;
+}
+
+.footer-column p,
+.footer-column address {
+    margin-bottom: 0;
+
+    color: var(--bark);
+
+    font-size: 10px;
+    font-style: normal;
+    line-height: 1.5;
+}
+
+.footer-nav {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    grid-template-rows: repeat(3, auto);
+
+    gap: 10px;
+
+    align-content: start;
+}
+
+.footer-nav a {
+    color: var(--bark);
+    font-size: 10px;
+}
+
+.footer-nav a:hover,
+.footer-column address a:hover {
+    color: var(--ink-black);
+}
+
+
+/* =========================================================
+   NEWSLETTER
+   ========================================================= */
+
+/*
+    GRID DEL FORMULARIO
+
+    grid-template-columns:
+    Divide el formulario en el campo de correo y el botón.
+
+    grid-template-rows:
+    Mantiene ambos elementos en una sola fila.
+
+    gap:
+    Controla la separación entre input y botón.
+*/
+
+.newsletter-form {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) auto;
+
+    grid-template-rows: 36px;
+
+    gap: 8px;
+
+    align-self: end;
+}
+
+.newsletter-form input {
+    min-width: 0;
+
+    border: 0;
+    border-bottom: 1px solid var(--pebble);
+    border-radius: 0;
+
+    outline: none;
+
+    background: transparent;
+
+    color: var(--ink-black);
+
+    font-size: 10px;
+}
+
+.newsletter-form input::placeholder {
+    color: var(--bark);
+}
+
+.newsletter-form input:focus {
+    border-bottom-color: var(--ink-black);
+}
+
+.newsletter-form .button {
+    min-width: 40px;
+    padding-inline: 12px;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+
+        grid-template-areas:
+            "content"
+            "visual";
+    }
+
+    .hero-content {
+        padding: 48px 0;
+    }
+
+    .hero-visual {
+        min-height: 360px;
+    }
+
+    .quality {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+
+        grid-template-areas:
+            "intro"
+            "features";
+
+        gap: 40px;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: auto auto;
+
+        grid-template-areas:
+            "newsletter navigation"
+            "solutions contact";
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MÓVIL
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+    :root {
+        --section-space: 48px;
+    }
+
+    .section-grid,
+    .site-header,
+    .footer-grid {
+        width: min(calc(100% - 32px), var(--content-width));
+    }
+
+    .site-header {
+        min-height: auto;
+
+        grid-template-columns: 1fr;
+        grid-template-rows: 56px auto;
+
+        grid-template-areas:
+            "brand"
+            "nav";
+
+        gap: 0;
+    }
+
+    .wordmark {
+        display: grid;
+        align-items: center;
+    }
+
+    .main-nav {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 40px;
+
+        gap: 0;
+    }
+
+    .nav-link {
+        justify-items: center;
+    }
+
+    .hero {
+        grid-template-rows: auto 300px;
+    }
+
+    .hero-content {
+        padding: 40px 0;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-visual {
+        min-height: 300px;
+    }
+
+    .box-illustration {
+        transform: scale(0.8);
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+
+        gap: 32px;
+    }
+
+    .service-card {
+        min-height: 0;
+        padding-right: 0;
+    }
+
+    .quality {
+        width: 100%;
+        padding-inline: 16px;
+    }
+
+    .cases-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+
+        gap: 36px;
+    }
+
+    .case-card {
+        grid-template-rows: 180px auto;
+    }
+
+    .case-image {
+        height: 180px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+
+        grid-template-areas:
+            "newsletter"
+            "navigation"
+            "solutions"
+            "contact";
+
+        gap: 36px;
+    }
+}
