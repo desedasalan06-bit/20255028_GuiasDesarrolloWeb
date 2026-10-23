@@ -1,0 +1,79 @@
+/* =====================================================
+   Estilos propios de la página de pedidos
+   (Bootstrap se usa para la estructura; aquí van
+   los detalles visuales personalizados)
+   ===================================================== */
+
+body {
+  background-color: #f5f1ec;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.titulo {
+  color: #4b2e1e;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Tarjetas */
+.tarjeta {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.5rem;
+}
+
+.tarjeta-encabezado {
+  background-color: #6f4e37;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 10px 10px 0 0 !important;
+}
+
+/* Tabla */
+.tabla-pedidos {
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.tabla-pedidos thead th {
+  background-color: #4b2e1e;
+  color: #ffffff;
+}
+
+/* Columnas numéricas alineadas a la derecha (precio, cantidad, subtotal) */
+.tabla-pedidos th:nth-child(n + 3),
+.tabla-pedidos td:nth-child(n + 3) {
+  text-align: right;
+}
+
+.fila-vacia {
+  text-align: center !important;
+  color: #888888;
+  font-style: italic;
+}
+
+/* Indicadores de totales */
+.indicador {
+  text-align: center;
+  border-radius: 10px;
+  border-width: 2px;
+}
+
+.indicador-titulo {
+  color: #6c757d;
+  font-size: 0.95rem;
+}
+
+.indicador-valor {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.texto-filtro {
+  color: #6c757d;
+  font-size: 0.875rem;
+  margin: 0.5rem 0 0;
+}
