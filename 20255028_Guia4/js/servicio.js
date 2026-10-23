@@ -1,16 +1,8 @@
-// =====================================================
-//  DATOS
-// =====================================================
-
 // Arreglo principal donde se guardan todos los pedidos
 let pedidos = [];
 
-// Guarda el precio máximo del filtro activo (null = sin filtro)
 let precioMaximoActivo = null;
 
-// =====================================================
-//  REFERENCIAS A ELEMENTOS DEL DOM
-// =====================================================
 const formPedido = document.querySelector("#formPedido");
 const txtProducto = document.querySelector("#txtProducto");
 const txtPrecio = document.querySelector("#txtPrecio");
@@ -26,10 +18,6 @@ const tbodyPedidos = document.querySelector("#tbodyPedidos");
 const lblTotalUnidades = document.querySelector("#lblTotalUnidades");
 const lblMontoTotal = document.querySelector("#lblMontoTotal");
 
-// =====================================================
-//  FUNCIONES DE PROCESAMIENTO DE DATOS (no tocan el HTML)
-// =====================================================
-
 // Crea un objeto pedido con la estructura solicitada
 function crearPedido(producto, precio, cantidad) {
   return { producto: producto, precio: precio, cantidad: cantidad };
@@ -44,7 +32,6 @@ function validarPedido(producto, precio, cantidad) {
   };
 }
 
-// Devuelve true si no hay ningún error
 function esValido(errores) {
   return Object.values(errores).every((error) => error === false);
 }
@@ -60,7 +47,6 @@ function calcularSubtotal(pedido) {
 }
 
 // Devuelve un NUEVO arreglo con los pedidos cuyo precio sea <= precioMaximo
-// (filter no modifica el arreglo original)
 function filtrarPorPrecio(lista, precioMaximo) {
   return lista.filter((pedido) => pedido.precio <= precioMaximo);
 }
@@ -94,9 +80,6 @@ function formatoMoneda(valor) {
   return "$" + valor.toFixed(2);
 }
 
-// =====================================================
-//  FUNCIONES DE ACTUALIZACIÓN DEL HTML
-// =====================================================
 
 // Crea una fila <tr> a partir de un pedido
 function crearFila(pedido, indice) {
@@ -111,7 +94,7 @@ function crearFila(pedido, indice) {
 
   celdas.forEach((valor) => {
     const td = document.createElement("td");
-    td.textContent = valor; // textContent evita inyectar HTML
+    td.textContent = valor;
     fila.appendChild(td);
   });
 
@@ -127,7 +110,6 @@ function renderizarTabla(lista) {
       </tr>`;
     return;
   }
-  // map transforma cada pedido en una fila <tr>
   tbodyPedidos.replaceChildren(...lista.map(crearFila));
 }
 
@@ -167,12 +149,8 @@ function limpiarFormulario() {
   txtProducto.focus();
 }
 
-// =====================================================
-//  MANEJADORES DE EVENTOS
-// =====================================================
-
 function manejarAgregarPedido(evento) {
-  evento.preventDefault(); // evita que la página se recargue
+  evento.preventDefault(); 
 
   const producto = txtProducto.value;
   const precio = parseFloat(txtPrecio.value);
@@ -207,16 +185,13 @@ function manejarMostrarTodos() {
 
 function manejarLimpiar() {
   vaciarPedidos();
-  manejarMostrarTodos(); // quita el filtro y actualiza la vista
+  manejarMostrarTodos();
 }
 
-// =====================================================
-//  REGISTRO DE EVENTOS (addEventListener, sin onclick en el HTML)
-// =====================================================
+//REGISTRO DE EVENTOS (addEventListener, sin onclick en el HTML)
 formPedido.addEventListener("submit", manejarAgregarPedido);
 btnFiltrar.addEventListener("click", manejarFiltrar);
 btnMostrarTodos.addEventListener("click", manejarMostrarTodos);
 btnLimpiar.addEventListener("click", manejarLimpiar);
 
-// Dibujo inicial
 actualizarVista();

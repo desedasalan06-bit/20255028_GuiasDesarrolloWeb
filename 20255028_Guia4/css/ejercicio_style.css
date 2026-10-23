@@ -1,8 +1,4 @@
-/* =====================================================
-   Estilos propios de la página de pedidos
-   (Bootstrap se usa para la estructura; aquí van
-   los detalles visuales personalizados)
-   ===================================================== */
+
 
 body {
   background-color: #f5f1ec;
@@ -31,7 +27,7 @@ body {
   border-radius: 10px 10px 0 0 !important;
 }
 
-/* Tabla */
+
 .tabla-pedidos {
   background-color: #ffffff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -42,7 +38,7 @@ body {
   color: #ffffff;
 }
 
-/* Columnas numéricas alineadas a la derecha (precio, cantidad, subtotal) */
+
 .tabla-pedidos th:nth-child(n + 3),
 .tabla-pedidos td:nth-child(n + 3) {
   text-align: right;
@@ -54,7 +50,7 @@ body {
   font-style: italic;
 }
 
-/* Indicadores de totales */
+
 .indicador {
   text-align: center;
   border-radius: 10px;
