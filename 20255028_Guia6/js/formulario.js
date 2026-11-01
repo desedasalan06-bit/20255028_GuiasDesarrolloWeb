@@ -21,8 +21,26 @@ const mensaje = document.getElementById("idMensaje");
 //Componente modal
 const idModal = document.getElementById("idModal");
 
-//Arreglo global de pacientes
-let arrayPaciente = [];
+/*
+Funciones para la persistencia de datos con LocalStorage.
+LocalStorage solo guarda texto, por eso los arreglos se
+convierten con JSON.stringify y se recuperan con JSON.parse
+*/
+function leerLocalStorage(clave) {
+  try {
+    return JSON.parse(localStorage.getItem(clave)) || [];
+  } catch (error) {
+    //Si el dato guardado esta dañado se inicia con un arreglo vacio
+    return [];
+  }
+}
+
+const guardarPacientes = () => {
+  localStorage.setItem("pacientes", JSON.stringify(arrayPaciente));
+};
+
+//Arreglo global de pacientes, se recupera del LocalStorage si existe
+let arrayPaciente = leerLocalStorage("pacientes");
 
 //Posicion del paciente que se esta editando (-1 = ninguno)
 let posicionEditar = -1;
@@ -97,6 +115,8 @@ const addPaciente = function () {
       //Actualizando la tabla con los nuevos datos
       imprimirPacientes();
     }
+    //Guardando los cambios en LocalStorage
+    guardarPacientes();
     //Llamando al componente de Bootstrap
     toast.show();
 
@@ -185,6 +205,7 @@ const eliminarPaciente = (posicion) => {
 
   if (confirm(`¿Desea eliminar al paciente ${paciente[0]} ${paciente[1]}?`)) {
     arrayPaciente.splice(posicion, 1);
+    guardarPacientes();
 
     //Ajustando el paciente que se estaba editando
     if (posicion == posicionEditar) {
@@ -202,6 +223,16 @@ const eliminarPaciente = (posicion) => {
   }
 };
 
+//Paises agregados por el usuario, se recuperan del LocalStorage
+//para que los pacientes guardados con esos paises se puedan editar
+let arrayPaises = leerLocalStorage("paises");
+arrayPaises.forEach((nombrePais) => {
+  let option = document.createElement("option");
+  option.textContent = nombrePais;
+  option.value = cmbPais.children.length;
+  cmbPais.appendChild(option);
+});
+
 // Contador global de los option correspondiente
 // al select (cmb) pais
 let contadorGlobalOption = cmbPais.children.length;
@@ -216,6 +247,10 @@ const addPais = () => {
 
     //Agregando el nuevo option en el select
     cmbPais.appendChild(option);
+
+    //Guardando el nuevo pais en LocalStorage
+    arrayPaises.push(paisNew);
+    localStorage.setItem("paises", JSON.stringify(arrayPaises));
 
     //Asignando un mensaje a nuestra notificacion
     mensaje.innerHTML = "Pais agregado correctamente";
@@ -268,3 +303,6 @@ idModal.addEventListener("shown.bs.modal", () => {
 
 //Ejecutar funcion al momento de cargar la pagina HTML
 limpiarForm();
+
+//Si hay pacientes guardados en LocalStorage se muestran al cargar la pagina
+if (arrayPaciente.length > 0) imprimirPacientes();
