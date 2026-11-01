@@ -24,6 +24,9 @@ const idModal = document.getElementById("idModal");
 //Arreglo global de pacientes
 let arrayPaciente = [];
 
+//Posicion del paciente que se esta editando (-1 = ninguno)
+let posicionEditar = -1;
+
 /*
 Creando una funcion para que limpie el formulario
 siempre que se cargue la pagina o cuando se presione
@@ -39,6 +42,10 @@ const limpiarForm = () => {
   cmbPais.value = 0;
   inputDireccion.value = "";
   inputNombrePais.value = "";
+
+  //Saliendo del modo edicion
+  posicionEditar = -1;
+  buttonAgregarPaciente.innerHTML = `<i class="bi bi-person-plus-fill"></i> Guardar Datos`;
 
   inputNombre.focus();
 };
@@ -69,13 +76,27 @@ const addPaciente = function () {
     pais != 0 &&
     direccion != ""
   ) {
-    //Agregando informacion al arreglo paciente
-    arrayPaciente.push(
-      new Array(nombre, apellido, fechaNacimiento, sexo, labelPais, direccion)
+    let paciente = new Array(
+      nombre,
+      apellido,
+      fechaNacimiento,
+      sexo,
+      labelPais,
+      direccion
     );
 
-    //Asignando un mensaje a nuestra notificacion
-    mensaje.innerHTML = "Se ha registrado un nuevo paciente";
+    if (posicionEditar == -1) {
+      //Agregando informacion al arreglo paciente
+      arrayPaciente.push(paciente);
+      //Asignando un mensaje a nuestra notificacion
+      mensaje.innerHTML = "Se ha registrado un nuevo paciente";
+    } else {
+      //Reemplazando la informacion del paciente que se esta editando
+      arrayPaciente[posicionEditar] = paciente;
+      mensaje.innerHTML = "Se han actualizado los datos del paciente";
+      //Actualizando la tabla con los nuevos datos
+      imprimirPacientes();
+    }
     //Llamando al componente de Bootstrap
     toast.show();
 
@@ -104,10 +125,10 @@ function imprimirFilas() {
                 <td>${element[4]}</td>
                 <td>${element[5]}</td>
                 <td>
-                    <button id="idBtnEditar${contador}" type="button" class="btn btn-primary" alt="Eliminar">
+                    <button id="idBtnEditar${contador}" type="button" class="btn btn-primary" alt="Editar">
                         <i class="bi bi-pencil-square"></i>
                     </button>
-                    <button id="idBtnEliminar${contador}" type="button" class="btn btn-danger" alt="Editar">
+                    <button id="idBtnEliminar${contador}" type="button" class="btn btn-danger" alt="Eliminar">
                         <i class="bi bi-trash3-fill"></i>
                     </button>
                 </td>
@@ -135,6 +156,50 @@ const imprimirPacientes = () => {
             </div>
         `;
   document.getElementById("idTablaPacientes").innerHTML = $table;
+};
+
+//Carga los datos del paciente en el formulario para poder editarlos
+const editarPaciente = (posicion) => {
+  let paciente = arrayPaciente[posicion];
+
+  inputNombre.value = paciente[0];
+  inputApellido.value = paciente[1];
+  inputFechaNacimiento.value = paciente[2];
+  inputRdMasculino.checked = paciente[3] == "Hombre";
+  inputRdFemenino.checked = paciente[3] == "Mujer";
+  //Buscando el option del pais por su texto
+  for (let option of cmbPais.options) {
+    if (option.text == paciente[4]) option.selected = true;
+  }
+  inputDireccion.value = paciente[5];
+
+  //Entrando al modo edicion
+  posicionEditar = posicion;
+  buttonAgregarPaciente.innerHTML = `<i class="bi bi-pencil-square"></i> Actualizar Datos`;
+  inputNombre.focus();
+};
+
+//Elimina un paciente del arreglo previa confirmacion
+const eliminarPaciente = (posicion) => {
+  let paciente = arrayPaciente[posicion];
+
+  if (confirm(`¿Desea eliminar al paciente ${paciente[0]} ${paciente[1]}?`)) {
+    arrayPaciente.splice(posicion, 1);
+
+    //Ajustando el paciente que se estaba editando
+    if (posicion == posicionEditar) {
+      limpiarForm();
+    } else if (posicion < posicionEditar) {
+      posicionEditar--;
+    }
+
+    //Asignando un mensaje a nuestra notificacion
+    mensaje.innerHTML = "Se ha eliminado el paciente";
+    //Llamando al componente de Bootstrap
+    toast.show();
+
+    imprimirPacientes();
+  }
 };
 
 // Contador global de los option correspondiente
@@ -180,6 +245,20 @@ buttonMostrarPaciente.onclick = () => {
 buttonAgregarPais.onclick = () => {
   addPais();
 };
+
+// Los botones Editar y Eliminar se crean dinamicamente en la tabla,
+// por eso se escucha el click en el contenedor de la tabla
+document.getElementById("idTablaPacientes").addEventListener("click", (e) => {
+  const boton = e.target.closest("button");
+  if (!boton) return;
+
+  // El id del boton termina con el numero de fila (el contador inicia en 1)
+  if (boton.id.startsWith("idBtnEditar")) {
+    editarPaciente(parseInt(boton.id.replace("idBtnEditar", "")) - 1);
+  } else if (boton.id.startsWith("idBtnEliminar")) {
+    eliminarPaciente(parseInt(boton.id.replace("idBtnEliminar", "")) - 1);
+  }
+});
 
 // Se agrega el focus en el campo nombre pais del modal
 idModal.addEventListener("shown.bs.modal", () => {
